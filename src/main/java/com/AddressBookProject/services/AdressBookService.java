@@ -3,9 +3,12 @@ package com.AddressBookProject.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.AddressBookProject.dto.AddressBookDTO;
 import com.AddressBookProject.model.AddressBookData;
 
+@Service
 public class AdressBookService implements AddressBookServiceInterface {
 	List <AddressBookData> list =new ArrayList<>();
 	
@@ -54,7 +57,7 @@ public class AdressBookService implements AddressBookServiceInterface {
 
 	@Override
 	public void deleteDataById(int personId) {
-		list.remove(personId);
+		list.remove(personId-1);
 		
 	}
 	

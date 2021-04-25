@@ -1,5 +1,8 @@
 package com.AddressBookProject.model;
 
+import com.AddressBookProject.dto.AddressBookDTO;
+
+
 public class AddressBookData {
 	
 	private int personId;
@@ -61,17 +64,16 @@ public class AddressBookData {
 			this.zip = zip;
 		}
 		
-		public AddressBookData(int personId, String first_name, String last_name, String phone_number, String email,
-				String city, String state, long zip) {
+		public AddressBookData(int personId, AddressBookDTO addressBookDTO) {
 			super();
-			this.personId = personId;
-			this.first_name = first_name;
-			this.last_name = last_name;
-			this.phone_number = phone_number;
-			this.email = email;
-			this.city = city;
-			this.state = state;
-			this.zip = zip;
+			this.personId =personId;
+			this.first_name = addressBookDTO.first_name;
+			this.last_name = addressBookDTO.last_name;
+			this.phone_number = addressBookDTO.phone_number;
+			this.email = addressBookDTO.email;
+			this.city = addressBookDTO.city;
+			this.state = addressBookDTO.state;
+			this.zip = addressBookDTO.zip;
 		}
 		public AddressBookData() {
 			
