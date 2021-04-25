@@ -2,6 +2,8 @@ package com.AddressBookProject.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,6 +15,11 @@ public class AddressBookController {
 	
 	public ResponseEntity<String> getAddressBookData(){
 		return new ResponseEntity<String>("Get call successful for data",HttpStatus.OK);
+	}
+	
+	@GetMapping("/get/{perId}")
+	public ResponseEntity<String> getAddressBookDataById(@PathVariable ("perId") int perId){
+		return new ResponseEntity<String>("Get call successful for id : "+perId , HttpStatus.OK);
 	}
 
 }
