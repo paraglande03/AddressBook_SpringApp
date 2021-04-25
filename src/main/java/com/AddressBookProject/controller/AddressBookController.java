@@ -2,6 +2,7 @@ package com.AddressBookProject.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.AddressBookProject.dto.AddressBookDTO;
+
+import net.bytebuddy.asm.MemberSubstitution.Substitution.Chain.Step.Resolution;
 
 @RestController
 @RequestMapping("/addressbookservice")
@@ -32,9 +35,16 @@ public class AddressBookController {
 		return new ResponseEntity<String>("Created new contact "+ addressBookDTO,HttpStatus.OK);
 	}
 	
-	@PutMapping("/update/{perId}")
-	public ResponseEntity<String> updateDataById(@PathVariable ("perId") int perId){
-		return new ResponseEntity<String>("Deleted data for Id :"+ perId, HttpStatus.OK);
+	@PutMapping("/update")
+	public ResponseEntity<String>updateData(@RequestBody AddressBookDTO addressBookDTO){
+		return new ResponseEntity<String>("Updated Data succesful :"+ addressBookDTO ,HttpStatus.OK);
 	}
+	
+	@DeleteMapping("/delete/{perId}")
+	public ResponseEntity<String> deleteDataById(@PathVariable ("perId") int perId){
+		return new ResponseEntity<String>("deleted data for Id :"+ perId, HttpStatus.OK);
+	}
+	
+	
 
 }
