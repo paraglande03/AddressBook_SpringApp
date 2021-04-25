@@ -1,12 +1,14 @@
 package com.AddressBookProject.dto;
 
-
-
+import javax.validation.constraints.Pattern;
 
 public class AddressBookDTO {
 	
 
+	@Pattern(regexp = "^[A-Z]{1,}[A-Za-z\\s]{2,}$",message = "Please add valid firstname")
 	public String first_name;
+	
+	@Pattern(regexp = "^[A-Z]{1,}[A-Za-z\\s]{2,}$",message = "Please add valid lastname")
 	public String last_name;
 	public String phone_number;
 	public String email;
