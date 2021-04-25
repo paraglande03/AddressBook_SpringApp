@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.AddressBookProject.dto.AddressBookDTO;
+import com.AddressBookProject.exceptions.AddressBookCustomException;
 import com.AddressBookProject.model.AddressBookData;
 
 @Service
@@ -23,7 +24,7 @@ public class AdressBookService implements AddressBookServiceInterface {
 	@Override
 	public AddressBookData getAddressBookDataById(int personId) {
 		return list.stream().filter(abData->abData.getPersonId()==personId)
-				.findFirst().orElseThrow();
+				.findFirst().orElseThrow(()-> new AddressBookCustomException("Person not found"));
 		
 		
 	}

@@ -22,5 +22,13 @@ public class ExceptionHandlerAddressBook {
 		return new ResponseEntity<ResponseDTO>(responseDTO , HttpStatus.BAD_REQUEST);
 		
 	}
+	
+	
+	@ExceptionHandler(AddressBookCustomException.class)
+	public ResponseEntity<ResponseDTO> idNotFoundException(AddressBookCustomException exception){
+		ResponseDTO responseDTO =new ResponseDTO("contact with this Id in not in the data", exception.getMessage());
+		
+		return new ResponseEntity<ResponseDTO>(responseDTO,HttpStatus.BAD_REQUEST);
+	}
 
 }
